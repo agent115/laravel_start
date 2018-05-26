@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function ()
+{
     return view('welcome');
 });
+
+Route::match(['get','post'],'/forms/', function ()
+{
+    return view('form');
+});
+
+Route::get('/select/{id}', ['uses' => 'Test\SelectController@selectByOne']);
+
